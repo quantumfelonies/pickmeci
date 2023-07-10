@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: “Playfair Display”, “Didot”, Times, serif;
+}
+
+a
+{
+    text-decoration: none;
+    color: #222f3e;
+    font-size: 28px;
+}
+
+.banner{
+    width: 100%;
+    background-color: white; /*CAF0F8 #ddeffb;*/
+}
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+nav ul li
+{
+    display: inline-block;
+    margin-right: 70px;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+nav
+{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul 
+{
+    display: inline-block;
+    list-style: none;
+}
+
+
+
+nav ul li a
+{
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 20px;
+    color: rgb(3, 2, 66);
+    font-family: serif;
+
+}
+
+nav ul li a:hover
+{
+    /*color: pink;
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;*/
+    color: black;
+}
+
+
+.row {
+display: flex;
+flex-direction: row;
+}
+
+.column1 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+padding: 5%;
+}
+
+.button{
+    background-color: rgb(3, 2, 66);
+    border: groove;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 30px;
+}
+
+.column2 {
+width: 100%;
+}
+
+.fimage {
+float: right;
+max-height: 80vh;
+margin-bottom: 0px;
+justify-content: end;
+display: flex;
+}
+
+.thumb {
+float: left;
+max-height: 80vh;
+margin-bottom: 0px;
+justify-content:center;
+display: flex;
+}
+
+.txt {
+background-color: /*rgb(217, 204, 255)*/ 90E0EF;
+padding: 150;
+border-radius: 10px;
+}
+
+.txt p {
+text-align: justify;
+}
+
+.content{
+    /*background-color: white;
+min-height: 500px; */
+    padding-top: 100;
+    text-align: center;
+    width:700;
+}
+.content h1{
+    font-size: 50px;
+    margin-top: -75px;
+}
+
+.content h1 + p{
+    font-style: italic;
+    font-size: 18px;
+}
+
+
+
+.extra{
+    width: 100%;
+    padding-top: 50;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    text-align: center;
+/* transform: translateY(-250%);*/
+    color: orange;
+}
+
+.extra h3{
+    font-size: 40px;
+    /*margin-top: -75px;*/
+}
+.extra h3 + p{
+    font-style: italic;
+    font-size: 18px;
+}
+
+
+.card {
+padding-top: 100px;
+padding-left: 60;
+padding-right: 60;
+padding-bottom: 10;
+position: relative;
+width: 50%;
+}
+
+.image {
+display: block;
+width: 150%;
+height: 70%;
+}
+
+.overlay {
+position: absolute;
+top: 100;
+/*bottom: 100;*/
+left: 62;
+/*right: 150;*/
+height: 71%;
+width: 100%;
+opacity: 0;
+transition: 0.5s ease;
+background-color: rgb(3, 2, 66);
+}
+
+.card:hover .overlay {
+opacity: 15;
+}
+
+.text {
+color: white;
+font-size: 20px;
+position: absolute;
+top: 50%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+}
+
+.text a
+{
+    color: white;
+}
+
+.footer{
+    background-color: #d6e0f5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.footer ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.footer ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: navy;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.footer ul li:hover::after{
+    width: 100%;
+}
+
+/* Change the color of links on hover */
+.footer a:hover {
+/*background-color: #ddd;*/
+color: black;
+}
+
+/* Style the "active" element to highlight the current page */
+.footer a.active {
+background-color: #2196F3;
+color: white;
+}
+
+.ftimg{
+    max-width: 100%;
+    max-height: 70%;
+    cursor: pointer;
+    padding-left:30;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.ftxt {
+    padding-top:10;
+    font-size: 30;
+font-style: italic;
+}
+
+/* Style for icons */
+.fa {
+padding: 20px;
+width: 50px;
+text-align: center;
+text-decoration: none;
+}
+
+.fa:hover {
+opacity: 0.7;
+}
