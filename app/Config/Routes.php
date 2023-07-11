@@ -31,7 +31,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('landing', 'LandingController::index');
-$routes->get('/admin', 'AdminController::index');
+$routes->get('admin/index', 'AdminController::index');
+$routes->get('admin/votersList', 'VoterController::index');
+
 
 // $routes->group ('admin', function ($routes) {
 //     $routes->get('voters', function(){

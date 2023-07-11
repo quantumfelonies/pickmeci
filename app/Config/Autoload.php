@@ -95,3 +95,5 @@ class Autoload extends AutoloadConfig
      */
     public $helpers = [];
 }
+
+$autoload['libraries'] = array('database');

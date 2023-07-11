@@ -14,7 +14,7 @@
         <a href="add_election.php">Add New Election</a>
         <a href="view_applications.php">Applying Candidates</a>
         <a href="election_candidates.php">View Candidates</a>
-        <a href="view_voters.php">Registered Voters</a>
+        <a href="votersList">Registered Voters</a>
         <a href="final_results.php">Election Results</a>
 
         <a class="log-out-button" href="admin-login.php">Log out</a>
