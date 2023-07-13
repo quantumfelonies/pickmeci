@@ -33,6 +33,9 @@ $routes->get('/', 'Home::index');
 $routes->get('landing', 'LandingController::index');
 $routes->get('admin/index', 'AdminController::index');
 $routes->get('admin/votersList', 'VoterController::index');
+$routes->get('auth/login', 'UserAuthController::login');
+$routes->post('send-otp', 'UserAuthController::sendOTP');
+$routes->post('verify-otp', 'UserAuthController::verifyOTP');
 
 
 // $routes->group ('admin', function ($routes) {

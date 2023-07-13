@@ -21,7 +21,7 @@
 					
 					<nav>
 						<ul id='MenuItems'>
-							<li><a href="login.php">login</a></li>
+							<li><a href="auth/login">login</a></li>
 						</ul>
 					</nav> 
 				</div>
@@ -31,7 +31,7 @@
 					  <h1>
 						Get involved in your school leadership! Your vote is your voice!
 					  </h1>
-					   <a href="http://localhost:8080/login2" class="button"> 
+					   <a href="auth/login" class="button"> 
 						   Get started </a>
 					</div>
 					<div class="column2">
