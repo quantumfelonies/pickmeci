@@ -23,26 +23,32 @@ This document outlines the architecture and features of a web-based voting appli
    - The system automatically tallies the votes and calculates the results.
    - Results are displayed in real-time, providing transparency and trust in the election process.
 
-6. Blockchain Technology:
-   - Utilizes blockchain to store and secure the election data.
-   - Each block contains a cryptographic hash of the previous block, ensuring data integrity.
+6. Ethereum Blockchain and Smart Contracts:
+   - Utilizes the Ethereum blockchain to store and secure the election data.
+   - Smart contracts, written in Solidity, are deployed on the Ethereum network to represent the election logic and data storage.
 
-7. CodeIgniter Framework:
+7. Integration with MetaMask and Ganache:
+   - MetaMask, a browser extension, is integrated to interact with the Ethereum network and sign transactions securely.
+   - Ganache, a local blockchain network, is used for testing and development purposes.
+
+8. CodeIgniter Framework:
    - Built using the CodeIgniter framework, a lightweight PHP framework with MVC architecture.
    - CodeIgniter provides a structured approach to developing the application and ensures scalability and maintainability.
 
-8. Security Measures:
-   - Implements robust security measures such as encryption, secure user authentication, and protection against common vulnerabilities (e.g., SQL injection, cross-site scripting).
+9. Security Measures:
+   - Implements robust security measures such as encryption, secure user authentication, and protection against common vulnerabilities.
 
-9. User Interface:
+10. User Interface:
    - The application provides a user-friendly interface for easy navigation and interaction.
-   - Responsive design for optimal user experience across different devices.
+   - Responsive design for optimal user experience desktop devices.
 
 ## Technology Stack
 - PHP (CodeIgniter Framework)
 - HTML/CSS/JavaScript (Front-end)
 - MySQL (Database)
-- Blockchain Technology (e.g., Ethereum, Hyperledger)
+- Ethereum Blockchain (Smart Contracts, Solidity)
+- MetaMask (Ethereum Wallet and Interaction)
+- Ganache (Local Blockchain Network)
 
 ## Deployment
 - The application can be deployed on a web server or cloud platform capable of running PHP applications.
