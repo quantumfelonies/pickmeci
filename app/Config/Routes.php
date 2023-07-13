@@ -31,11 +31,20 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('landing', 'LandingController::index');
-$routes->get('admin/index', 'AdminController::index');
-$routes->get('admin/votersList', 'VoterController::index');
+
 $routes->get('auth/login', 'UserAuthController::login');
 $routes->post('send-otp', 'UserAuthController::sendOTP');
 $routes->post('verify-otp', 'UserAuthController::verifyOTP');
+
+$routes->get('admin/index', 'AdminController::index');
+$routes->get('admin/votersList', 'VoterController::index');
+$routes->get('admin/register', 'CandidateController::register');
+$routes->get('admin/view', 'CandidateController::index');
+$routes->get('admin/list', 'CandidateController::index');
+
+$routes->add('admin/candidates/register', 'CandidateController::register');
+$routes->add('admin/candidates', 'CandidateController::list');
+$routes->add('admin/candidates/(:num)', 'CandidateController::view/$1');
 
 
 // $routes->group ('admin', function ($routes) {
