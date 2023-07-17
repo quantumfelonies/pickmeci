@@ -8,7 +8,7 @@ class UserModel extends Model
 {
     protected $table = 'tbl_user';
     protected $primaryKey = 'email';
-    protected $allowedFields = ['email', 'otp_code'];
+    protected $allowedFields = ['email', 'first_name' , 'last_name' , 'otp_code'];
 
     public function updateByEmail($email, $data)
     {

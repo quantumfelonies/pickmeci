@@ -17,38 +17,27 @@ class UserAuthController extends Controller
     public function sendOTP()
     {
         $email = $this->request->getVar('email');
-        $email = (string) $email;
 
         // Validate email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return redirect()->back()->withInput()->with('error', 'Invalid email format');
         }
 
-        $userModel = new UserModel();
-        $user = $userModel->where('email', $email)->where('role_id', 1)->first();
-
-        if (!$user) {
-            return redirect()->back()->withInput()->with('error', 'Invalid email or role');
-        }
-
-        if (!is_string($email)) {
-            return redirect()->back()->withInput()->with('error', 'Invalid email');
-        }
-
         // Generate random OTP code
         $otpCode = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
 
         // Save OTP code to the database
+        $userModel = new UserModel();
         $userModel->updateByEmail($email, ['otp_code' => $otpCode]);
 
         // Send email with OTP code
         try {
-            $email = new Email();
-            $email->setTo($email);
-            $email->setSubject('OTP Code');
-            $email->setMessage("Hello! <br> Welcome to PickMe voting website. <br> Your OTP code is: $otpCode
-            <br> Use this code to login. Remember, your vote is your voice! <br><br>Regards <br> Election Admin");
-            $email->send();
+            $sendemail = new Email();
+            $sendemail->setTo($email);
+            $sendemail->setSubject('OTP Code');
+            $sendemail->setMessage("Hello! <br> Welcome to PickMe voting website. <br> Your OTP code is: $otpCode <br> 
+            Use this code to login. Remember, your vote is your voice! <br><br>Regards <br> Election Admin");
+            $sendemail->send();
 
             return redirect()->to('auth/verify')->with('success', 'OTP code has been sent to your email');
         } catch (Exception $e) {
@@ -63,14 +52,14 @@ class UserAuthController extends Controller
 
         // Retrieve user from the database by email and OTP code
         $userModel = new UserModel();
-        $user = $userModel->where('email', $email)->where('role_id', 1)->where('otp_code', $otpCode)->first();
+        $user = $userModel->where('email', $email)->where('otp_code', $otpCode)->first();
 
         if ($user) {
             // Clear the OTP code in the database after successful verification
             $userModel->updateByEmail($email, ['otp_code' => null]);
 
-             // Update the 'is_verified' field to 1
-            $userModel->updateByEmail($email, ['is_verified' => 1]);
+            // Update the 'is_verified' field to 1
+            $userModel->updateByEmail($email, ['is_verified' => 'Yes']);
 
             // Log the user in
             session()->set('user', $user);
@@ -84,6 +73,6 @@ class UserAuthController extends Controller
     public function logout()
     {
         session()->remove('user');
-        return redirect()->to('/login')->with('success', 'Logged out successfully');
+        return redirect()->to('auth/login')->with('success', 'Logged out successfully');
     }
 }

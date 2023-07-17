@@ -12,7 +12,7 @@
 	<body>
 	<div class="registration-background">
         <div class="background-image">
-        <img src="logo.jpg" class="background-image" alt="background image">
+        <img src="logo.png" class="background-image" alt="background image">
         </div>
         <div class="registration-form">
             <div class="form-content">
