@@ -39,14 +39,10 @@
 
         
         <table class="table">
-            <thead>
-                <tr>
                     <th>Title</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Action</th>
-                </tr>
-            </thead>
             <tbody>
                 <?php foreach ($elections as $election) : ?>
                     <tr>
