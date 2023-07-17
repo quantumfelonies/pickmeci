@@ -11,11 +11,12 @@
     <nav>
       <div class="side_navbar">
         <a href="index">Home</a>
-        <a href="add_election.php">Add New Election</a>
-        <a href="view_applications.php">Applying Candidates</a>
-        <a href="election_candidates.php">View Candidates</a>
+        <a href="">Add New Election</a>
+        <a href="positions">Positions</a>
+        <a href="register">Add Candidates</a>
+        <a href="list">View Candidates</a>
         <a class="active" href="#">Registered Voters</a>
-        <a href="final_results.php">Election Results</a>
+        <a href="">Election Results</a>
 
         <a class="log-out-button" href="admin-login.php">Log out</a>
       </div>

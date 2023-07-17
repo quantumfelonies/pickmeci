@@ -17,7 +17,7 @@ class VoterModel extends Model{
         
     public function getVerifiedUsers()
     {
-        return $this->where('is_verified', '1')
+        return $this->where('is_verified', 'Yes')
                     ->findAll();
     }
 }

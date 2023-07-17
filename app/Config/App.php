@@ -141,7 +141,9 @@ class App extends BaseConfig
      * Session Driver
      * --------------------------------------------------------------------------
      *
-     * The session storage driver to use:
+     * The session storage driver to use:FileHandler::class
+     *     public string $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
+
      * - `CodeIgniter\Session\Handlers\FileHandler`
      * - `CodeIgniter\Session\Handlers\DatabaseHandler`
      * - `CodeIgniter\Session\Handlers\MemcachedHandler`
@@ -149,8 +151,7 @@ class App extends BaseConfig
      *
      * @deprecated use Config\Session::$driver instead.
      */
-    public string $sessionDriver = FileHandler::class;
-
+    public $sessionDriver            = 'CodeIgniter\Session\Handlers\FileHandler';
     /**
      * --------------------------------------------------------------------------
      * Session Cookie Name

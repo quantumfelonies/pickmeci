@@ -12,12 +12,12 @@
 	<body>
 	<div class="registration-background">
         <div class="background-image">
-        <img src="logo.jpg" class="background-image" alt="background image">
+        <img src="logo.png" class="background-image" alt="background image">
         </div>
         <div class="registration-form">
             <div class="form-content">
                 <h2>Login</h2>
-                <form action="<?= site_url('send-otp') ?>" method="post">
+                <form action="<?= site_url('sendOTP') ?>" method="post">
                     <div class="input">
                         <!-- <span>Email</span> -->
                         <!-- <label for="email">Email:</label> -->

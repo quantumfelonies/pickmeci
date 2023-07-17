@@ -1,5 +1,5 @@
 <!-- auth/verify.php -->
-<form action="<?= site_url('verify-otp') ?>" method="post">
+<form action="<?= site_url('verifyOTP') ?>" method="post">
     <div>
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required value="<?= old('email') ?>">
