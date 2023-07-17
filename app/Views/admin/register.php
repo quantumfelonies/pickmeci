@@ -12,8 +12,9 @@
         <div class="side_navbar">
             <a href="index">Home</a>
             <a href="">Add New Election</a>
+            <a href="positions">Positions</a>
             <a class="active" href="#">Add Candidates</a>
-            <a href="view">View Candidates</a>
+            <a href="list">View Candidates</a>
             <a href="votersList">Registered Voters</a>
             <a href="">Election Results</a>
 
@@ -23,33 +24,45 @@
         
         <div class="main-body">
             <h2>Register Candidate</h2>
-            <?php if (session()->getFlashData('success')): ?>
-                <div class="success-message">
-                    <?= session()->getFlashData('success') ?>
+            <?php if (session()->has('success')): ?>
+                <div class="success">
+                    <?php foreach (session()->getFlashdata('success') as $message): ?>
+                        <p><?= $message ?></p>
+                    <?php endforeach; ?>
                 </div>
-            <?php elseif (session()->getFlashData('error')): ?>
-                <div class="error-message">
-                    <?= session()->getFlashData('error') ?>
+            <?php elseif (session()->has('error')): ?>
+                <div class="error">
+                    <?php foreach (session()->getFlashdata('error') as $message): ?>
+                        <p><?= $message ?></p>
+                    <?php endforeach; ?>
                 </div>
             <?php endif; ?>
-            <form action="<?= site_url('candidates/register') ?>" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required value="<?= old('email') ?>">
+                    
+            <form action="<?= site_url('admin/register') ?>" method="post" enctype="multipart/form-data">
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="student_email" required>
                 </div>
-                <div class="form-group">
-                    <label for="position_id">Position ID:</label>
-                    <input type="number" name="position_id" id="position_id" required value="<?= old('position_id') ?>">
+                <div>
+                    <label>Position:</label>
+                    <select name="position_id" required>
+                        <option value="">Select Position</option>
+                        <?php foreach ($positions as $position): ?>
+                            <option value="<?= $position['id'] ?>"><?= $position['position_name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea name="description" id="description" required><?= old('description') ?></textarea>
+                <div>
+                    <label>Description:</label>
+                    <textarea name="description" required></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="manifesto_file">Manifesto File:</label>
-                    <input type="file" name="manifesto_file" id="manifesto_file" required>
+                <div>
+                    <label>Manifesto File:</label>
+                    <input type="file" name="manifesto_file" required>
                 </div>
-                <button type="submit">Register</button>
+                <div>
+                    <button type="submit">Register</button>
+                </div>
             </form>
         </div>
     </div>

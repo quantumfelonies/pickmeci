@@ -1,4 +1,4 @@
-# PickMe
+# PickMe: A Web-based Voting Application using Blockchain and PHP (CodeIgniter)
 
 ## Introduction
 This document outlines the architecture and features of a web-based voting application built using blockchain technology and PHP on the CodeIgniter framework. The application aims to provide a secure and transparent voting system for various elections in campuses.
@@ -65,13 +65,13 @@ And it changes `application/config/config.php`:
 
 ~~~
 $config['composer_autoload'] = FALSE;
-↓
+
 $config['composer_autoload'] = realpath(APPPATH . '../vendor/autoload.php');
 ~~~
 
 ~~~
 $config['index_page'] = 'index.php';
-↓
+
 $config['index_page'] = '';
 ~~~
 
@@ -176,59 +176,6 @@ We want to import the Ganache Account to metamask, we can follow these steps:
 2. It will show the form import account.
 3. Copy the `Private Key` on Ganache before, then copy it to the metamask private key form. 
 4. After that, click `Import` button. We will see the `Account Address` and `Balance` are same like as in `Ganache Account`. We can adding multiple accounts from Ganache to Metamask.
-
-### Send ETH between Account
-After We have 2 imported account. We can simulate to send ETH between account.
-
-Follow these steps:
-1. In metamask, Click on `Send`. Then it will redirect to form send. 
-2. Fill the inputs with the different account address. It will be like this. 
-3. Then we set the `Amount`, and click send. For example 5 ETH. It will redirect to `Confirmation Page`. 
-4. After we submit `Confirm`. We will redirect to `Transaction Queue Section`.  
-5. After waiting for the pending, the transaction will be updated to History Section. 
-6. Congratulations, we have successfully send the coin ! You can see also in Ganache Balance are updated. 
-
-## Smart Contract Remix to Ganache
-
-First, we need to create the smart contract.
-```solidity
-pragma solidity >=0.7.0 <0.9.0;
-
-contract ProofOfExistence {
-    mapping (bytes32 => bool) private proofs;
-
-    function storeProof(bytes32 proof) public {
-        proofs[proof] = true;
-    }
-
-    function proofFor(string memory document) private pure returns (bytes32) {
-        return sha256(bytes(document));
-    }
-
-    function notarize(string memory document) public {
-        storeProof(proofFor(document));
-    }
-
-    function checkDocument(string memory document) public view returns (bool) {
-        return proofs[proofFor(document)];
-    }
-}
-```
-
-Step to deploy the contract:
-1. Run the `Ganache` and choose `Quick Start`. Then we see the accounts 
-2. Open Remix Browser, and select the localhost. 
-3. In Remix, open tab Deploy then choose Environment `External HTTP Provider`. 
-4. Update the url & port to follow the Ganache `RPC Server`. Which in this case is `http://127.0.0.1:7545` 
-5. After connected, we've got the same account in `remix account` and `ganache account`. 
-6. In Remix, we `Deploy` the smart contract to some account. And we can see the contract. 
-7. In Ganache, we can see our contract in `Blocks` tab: And in the `Transactions` tab: 
-
-After deployed, Step to transaction:
-1. Create a transaction, Call `notarize` with input `"Hello"`:  We can see the transaction hash and the detail.
-2. Then we can see in ganache transaction has been called, and the transaction hash is same like above. 
-3. After that, we want to make sure that the transaction are legit. We can call the `checkDocument` with `"Hello"`: The response are valid true and the details are same like in Ganache transaction. 
-**When only checking the transaction, there is no adding block / transaction**.
 
 ## Deployment
 - The application can be deployed on a web server or cloud platform capable of running PHP applications.

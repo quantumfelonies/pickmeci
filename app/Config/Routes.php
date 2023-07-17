@@ -32,19 +32,65 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('landing', 'LandingController::index');
 
+
+// $routes->get('auth/login', 'UserAuthController::login');
+// $routes->get('auth/verify', 'UserAuthController::verifyOTP');
+// $routes->post('send-otp', 'UserAuthController::sendOTP');
+// $routes->post('verify-otp', 'UserAuthController::verifyOTP');
+
+$routes->get('/', 'Home::index');
 $routes->get('auth/login', 'UserAuthController::login');
+$routes->get('auth/verify', 'UserAuthController::verifyOTP');
 $routes->post('send-otp', 'UserAuthController::sendOTP');
 $routes->post('verify-otp', 'UserAuthController::verifyOTP');
+$routes->get('user/index', 'UserController::index');
+$routes->get('user/logout', 'UserAuthController::logout');
+$routes->get('user/voter', 'voter::index');
+$routes->get('user/help', 'help::index');
+$routes->get('user/year', 'year::index');
+$routes->get('user/candidate', 'candidate::index');
+$routes->get('user/confirmation', 'confirmation::index');
+$routes->get('user/saveddata', 'saveddata::index');
+$routes->post('user/SavedData', 'saveddata::index');
+$routes->post('user/SavedData.php', 'SavedData::index');
+$routes->get('user/validation', 'validation::index');
+$routes->get('databasecontroller/connectToDatabase', 'DatabaseController::connectToDatabase');
+$routes->get('user/profile', 'profile::index');
+$routes->add('test_db_connection', 'test_db_connection::index');
+$routes->post('processEmail', 'auth::processEmail');
 
-$routes->get('admin/index', 'AdminController::index');
-$routes->get('admin/votersList', 'VoterController::index');
-$routes->get('admin/register', 'CandidateController::register');
-$routes->get('admin/view', 'CandidateController::index');
-$routes->get('admin/list', 'CandidateController::index');
+// Routes for the admin section
+$routes->group('admin', function ($routes) {
+    // Admin authentication routes
+    $routes->get('login', 'AdminAuthController::login');
+    $routes->post('login', 'AdminAuthController::login');
+    $routes->get('logout', 'AdminAuthController::logout');
 
-$routes->add('admin/candidates/register', 'CandidateController::register');
-$routes->add('admin/candidates', 'CandidateController::list');
-$routes->add('admin/candidates/(:num)', 'CandidateController::view/$1');
+    // Admin dashboard route
+    $routes->get('index', 'AdminController::index');
+
+    // Voters list route
+    $routes->get('votersList', 'VoterController::index');
+
+    // Candidate routes
+    $routes->get('register', 'CandidateController::register');
+    $routes->add('register', 'CandidateController::register');
+    $routes->post('register', 'CandidateController::register');
+    $routes->get('list', 'CandidateController::list');
+    $routes->get('candidates/edit/(:num)', 'CandidateController::edit/$1');
+    $routes->post('candidates/edit/(:num)', 'CandidateController::edit/$1');
+
+    // Positions routes
+    $routes->get('positions', 'PositionController::index');
+    $routes->get('addposition', 'PositionController::add');
+    $routes->get('positions/add', 'PositionController::add');
+    $routes->get('positions/update/(:num)', 'PositionController::update/$1');
+    $routes->get('positions/delete/(:num)', 'PositionController::delete/$1');
+    $routes->post('positions/add', 'PositionController::add');
+    $routes->post('positions/update/(:num)', 'PositionController::update/$1');
+    $routes->post('positions/delete/(:num)', 'PositionController::delete/$1');
+});
+
 
 
 // $routes->group ('admin', function ($routes) {
