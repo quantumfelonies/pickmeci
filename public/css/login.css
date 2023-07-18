@@ -125,13 +125,22 @@
     display: flex;
     height: 100vh;
   }
-  
-  .background-image {
-    flex: 1;
-    background-image: url("wavy.jpg");
-    background-size: cover;
-    background-position: center;
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .half-page-image {
+    max-width: 50%;
+    float: left;
+    margin-right: 20px;
+  }
+  
   
   .registration-form {
     flex: 1;
@@ -167,7 +176,7 @@
     font-weight: bold;
   }
   
-  input[type="email"] {
+  input {
     /* border: 1px solid gray;
     padding: 10px;
     border-radius: 5px;

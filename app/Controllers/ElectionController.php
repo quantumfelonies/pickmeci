@@ -68,3 +68,4 @@ class ElectionController extends Controller
     //     return view('admin/viewElection', $data);
     // }
 }
+?>

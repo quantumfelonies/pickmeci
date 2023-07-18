@@ -51,51 +51,16 @@ class UserAuthController extends Controller
             $sendemail->setMessage('Hello ' . $email . ',' . '<br> Welcome to PickMe voting website. <br> Your OTP code is:' . $otpCode . 
             '<br> Use this code to login. Remember, your vote is your voice! <br><br>Regards <br> Election Admin');
             
-            // Send email
-            $sendemail->send();
+            try {
+                $sendemail->send();
     
-            // Check if the email was sent successfully
-            if ($sendemail->send()) {
                 // OTP email sent successfully
                 return redirect()->to(site_url('auth/verify'))->with('success', 'OTP code has been sent to your email');
-            } else {
-                // Failed to send OTP email
+            } catch (\Exception $e) {
+                // Exception occurred while sending email
                 return redirect()->back()->withInput()->with('error', 'Failed to send OTP code. Please try again.');
-            }
-        // } catch (Exception $e) {
-        //     // Exception occurred while sending email
-        //     return redirect()->back()->withInput()->with('error', 'Failed to send OTP code. Please try again.');
-        // }
+            } 
 
-
-        //  // Send email
-        //  if ($sendemail->send()) {
-        //     echo "email sent";
-        //  } else {
-        //      echo "emailNotSent";
-        //  }
-
-        //  return redirect()->to('auth/verify');
-
-
-
-        // Send email with OTP code
-        // try {
-        //     $sendemail = new Email();
-        //     $sendemail->setFrom('aelection269@gmail.com', 'election admin' );
-        //     $sendemail->setTo($email);
-        //     $sendemail->setSubject('OTP Code');
-        //     $sendemail->setMessage("Hello! <br> Welcome to PickMe voting website. <br> Your OTP code is: $otpCode <br> 
-        //     Use this code to login. Remember, your vote is your voice! <br><br>Regards <br> Election Admin");
-        //     $sendemail->send();
-
-    //     $this->session->setFlashdata('success', 'OTP code has been sent to your email');
-    //     return redirect()->to(base_url('auth/verify'));
-    //    } catch (Exception $e) {
-           
-    //    $this->session->setFlashdata('error', 'Failed to send OTP code. Please try again.');
-    //        return redirect()->back()->withInput();
-    //    }
     }
 
     public function verifyOTP()
@@ -118,7 +83,7 @@ class UserAuthController extends Controller
             // session()->set('user', $user);
 
             $this->session->setFlashdata('success', 'Logged in successfully');
-            return redirect()->to('user/index');
+            return redirect()->to('user/voter');
         } else {
             $this->session->setFlashdata('error', 'Invalid OTP code');
             return redirect()->back()->withInput();
@@ -131,3 +96,4 @@ class UserAuthController extends Controller
         return redirect()->to('auth/login')->with('success', 'Logged out successfully');
     }
 }
+?>

@@ -9,4 +9,4 @@ class candidate extends BaseController
         return view('user/candidate');
     }
 }
-
+?>

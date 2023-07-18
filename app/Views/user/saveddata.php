@@ -7,20 +7,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // If your DatabaseController.php file defines the $pdo variable, you can uncomment the line below
     // $pdo = getPDO();
 
-    foreach ($_POST as $key => $value) {
-        if (strpos($key, 'txtCand_') === 0) {
-            $postID = substr($key, strlen('txtCand_'));
-            $email = $value;
+    try {
+        $pdo->beginTransaction();
 
-            // Perform the database insertion for each post ID and email
-            $sql = "INSERT INTO users (`std.email`) VALUES (:email)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(":email", $email);
-            $stmt->execute();
+        // Prepare the SQL statement outside the loop for efficiency
+        $sql = "INSERT INTO tbl_vote (student_email, election_id, candidate_id, position_id) 
+                VALUES (:student_email, :election_id, :candidate_id, :position_id)";
+        $stmt = $pdo->prepare($sql);
+
+        foreach ($_POST as $key => $value) {
+            if (strpos($key, 'txtCand_') === 0) {
+                $postID = substr($key, strlen('txtCand_'));
+                $email = $value;
+
+                // Set the appropriate values for election_id, candidate_id, and position_id
+                $electionId = 1; // Replace with the actual election ID
+                $candidateId = $postID;
+                $positionId = 1; // Replace with the actual position ID
+
+                // Bind parameters and execute the statement for each record
+                $stmt->bindParam(":student_email", $email);
+                $stmt->bindParam(":election_id", $electionId);
+                $stmt->bindParam(":candidate_id", $candidateId);
+                $stmt->bindParam(":position_id", $positionId);
+                $stmt->execute();
+            }
         }
+
+        $pdo->commit();
+
+        // Display success message or redirect to a success page
+        echo "<div class='popup' id='popup'>
+                <div class='popup-content'>
+                    <h2 class='popup-title'>Vote Successful</h2>
+                    <p class='popup-message'>Thank you for voting!</p>
+                    <a href='validation' class='popup-btn'>View Results</a>
+                </div>
+            </div>";
+
+    } catch (PDOException $e) {
+        // Rollback the transaction on error
+        $pdo->rollBack();
+
+        // Handle the exception or display an error message
+        echo "Error: " . $e->getMessage();
     }
 }
 ?>
+
 <style>
     /* Place your CSS code here */
     .popup {
@@ -70,11 +104,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 </style>
 
-<!-- Popup -->
-<div class="popup" id="popup">
-    <div class="popup-content">
-        <h2 class="popup-title">Vote Successful</h2>
-        <p class="popup-message">Thank you for voting!</p>
-        <a href="validation" class="popup-btn">View Results</a>
-    </div>
-</div>

@@ -9,3 +9,4 @@ class AdminController extends BaseController
         return view('admin/index');
     }
 }
+?>

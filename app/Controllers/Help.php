@@ -8,5 +8,11 @@ class help extends BaseController
    {
         return view('user/help');
     }
+
+    public function help()
+   {
+        return view('frontend/help');
+    }
 }
+?>
 

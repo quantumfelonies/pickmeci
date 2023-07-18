@@ -197,5 +197,6 @@ class CandidateController extends Controller
         return redirect()->to(site_url('admin/list'))->with('success', 'Candidate deleted successfully');
     }
 
-}  
+} 
+?> 
 

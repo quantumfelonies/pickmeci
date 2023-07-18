@@ -9,3 +9,4 @@ class profile extends BaseController
         return view('user/profile');
     }
 }
+?>

@@ -39,3 +39,4 @@ class DatabaseController extends BaseController
         return $results;
     }
 }
+?>

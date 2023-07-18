@@ -9,3 +9,4 @@ class voter extends BaseController
         return view('user/voter');
     }
 }
+?>

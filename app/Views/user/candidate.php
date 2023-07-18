@@ -85,10 +85,10 @@
                 $pdo = new PDO($dsn, $username, $password);
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT tbl_candidates.*, tbl_students.`std.fname`, tbl_students.`std.lname`
-                  FROM tbl_candidates
-                 INNER JOIN tbl_students ON tbl_candidates.`std.email` = tbl_students.`std.email`
-                 WHERE tbl_candidates.`post.id` = 3";
+                $sql = "SELECT tbl_candidate.*, tbl_user.`first_name`, tbl_user.`last_name`
+                  FROM tbl_candidate
+                 INNER JOIN tbl_user ON tbl_candidate.`student_email` = tbl_user.`email`
+                 WHERE tbl_candidate.`position_id` = 3";
                 $result = $pdo->query($sql);
                 $rs = $result->fetchAll();
 
@@ -99,7 +99,7 @@
                             <div class="candidate-card">
                                 <img class="card-img-top" src="https://pixlok.com/wp-content/uploads/2022/02/Profile-Icon-SVG-09856789.png" alt="shinzo" height="200px">
                                 <div class="card-body">
-                                    <h2 class="card-title"><?php echo $row['std.email']; ?></h2>
+                                    <h2 class="card-title"><?php echo $row['student_email']; ?></h2>
                                     <a href="confirmation" class="btn btn-primary custom-button">Vote Now</a>
                                 </div>
                             </div>

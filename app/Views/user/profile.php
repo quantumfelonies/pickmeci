@@ -205,9 +205,9 @@ try {
     // Set PDO error mode to exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT tbl_candidates.*, tbl_students.`std.fname` AS first_name, tbl_students.`std.lname` AS last_name 
-            FROM tbl_candidates
-            INNER JOIN tbl_students ON tbl_candidates.`std.email` = tbl_students.`std.email`";
+    $sql = "SELECT tbl_candidate.*, tbl_user.`first_name` AS first_name, tbl_user.`last_name` AS last_name 
+            FROM tbl_candidate
+            INNER JOIN tbl_user ON tbl_candidate.`student_email` = tbl_user.`email`";
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
@@ -233,7 +233,7 @@ try {
         <!-- Display candidate information -->
         <?php foreach ($candidates as $candidate) { ?>
             <div class="candidate-card">
-                <h3>Email: <?php echo $candidate['std.email']; ?></h3>
+                <h3>Email: <?php echo $candidate['student_email']; ?></h3>
                 <p>First Name: <?php echo $candidate['first_name']; ?></p>
                 <p>Last Name: <?php echo $candidate['last_name']; ?></p>
                 <!-- Add additional columns as needed -->

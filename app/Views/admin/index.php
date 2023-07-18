@@ -4,6 +4,9 @@
   <header class="header">
     <div class="title">
       <span>Dashboard</span>
+      <?php if (session()->has('user_email')): ?>
+        <span class="user-email"><?= session('user_email') ?></span>
+      <?php endif; ?>
     </div>
   </header>
 
@@ -33,6 +36,11 @@
                 <?= session()->getFlashData('error') ?>
             </div>
         <?php endif; ?>
+        <?php if (session()->has('user_email')): ?>
+    <div class="user-email">
+        Email: <?= session('user_email') ?>
+    </div>
+<?php endif; ?>
         <p>Welcome, Admin!</p>
         <p>Click an option on the sidebar to get started</p>
       </div>

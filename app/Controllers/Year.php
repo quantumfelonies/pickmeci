@@ -9,3 +9,4 @@ class year extends BaseController
         return view('user/year');
     }
 }
+?>

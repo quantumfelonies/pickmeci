@@ -11,7 +11,7 @@
     <nav>
       <div class="side_navbar">
         <a href="index">Home</a>
-        <a href="add_election.php">Add New Election</a>
+        <a href="createElection">Add New Election</a>
         <a href="positions">Positions</a>
         <a class="active" href="#">Add Position</a>
         <a href="register">Add Candidates</a>

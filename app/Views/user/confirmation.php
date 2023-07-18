@@ -85,10 +85,10 @@
                         <?php
 $pdo = new PDO('mysql:host=localhost;dbname=pickme;charset=utf8', 'root', '');
 
-$sql = "SELECT c.`post.id`, u.`std.email` AS std_email, COUNT(*) AS result 
-        FROM tbl_candidates c
-        JOIN users u ON u.`std.email` = c.`std.email`
-        GROUP BY c.`post.id`, u.`std.email`";
+$sql = "SELECT c.`position_id`, u.`email` AS student_email, COUNT(*) AS result 
+        FROM tbl_candidate c
+        JOIN tbl_user u ON u.`email` = c.`student_email`
+        GROUP BY c.`position_id`, u.`email`";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
@@ -97,22 +97,22 @@ $results = $stmt->fetchAll(PDO::FETCH_OBJ);
 $previousPostId = null;
 
 foreach ($results as $output) {
-    if ($previousPostId !== $output->{'post.id'}) {
+    if ($previousPostId !== $output->{'position_id'}) {
         if ($previousPostId !== null) {
             echo '</select>';
             echo '</td></tr>';
         }
 
         echo '<tr>';
-        echo '<td class="td-1">Which Candidate (Post ID: ' . $output->{'post.id'} . '):</td>';
+        echo '<td class="td-1">Which Candidate (Post ID: ' . $output->{'position_id'} . '):</td>';
         echo '<td class="td-1">';
-        echo '<select required name="txtCand_' . $output->{'post.id'} . '" style="display: inline-block;">';
+        echo '<select required name="txtCand_' . $output->{'position_id'} . '" style="display: inline-block;">';
         echo '<option>Confirm candidate selection</option>';
     }
 
-    echo '<option>' . $output->std_email . '</option>';
+    echo '<option>' . $output->student_email . '</option>';
 
-    $previousPostId = $output->{'post.id'};
+    $previousPostId = $output->{'position_id'};
 }
 
 if ($previousPostId !== null) {

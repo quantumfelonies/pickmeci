@@ -17,3 +17,4 @@ class SavedData extends BaseController
         include(APPPATH . 'views/user/saveddata.php');
     }
 }
+?>
