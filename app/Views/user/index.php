@@ -29,8 +29,7 @@
 				<div class="row">
 					<div class="column1">
 					  <h1>
-						Get involved in your school leadership today! <br>
-						 Your vote is your voice!
+						Get involved in your school leadership! Your vote is your voice!
 					  </h1>
 					   <a href="auth/login" class="button"> 
 						   Get started </a>
@@ -48,10 +47,12 @@
 					<div class="column2">
 						<div class="content">
 							<div class="txt">
-								<h1> Want to know who's in the lead?</h1>
-								<p>We have pride in our high security in the voting process. You can follow the results as they mill in here. </p>
-                <a href= user/validation class="button"> 
-						   View Results </a>
+								<h1> For Candidates </h1>
+								<p>Are you interested in running for student council? Be the catalyst of change:
+                   Sign up for candidacy and shape a better future. Your voice matters, so seize 
+                   the opportunity to lead, advocate, and make a lasting impact. </p>
+                <a href= register.php class="button"> 
+						   Sign up here! </a>
 							</div>
 						</div>
 					</div>
@@ -64,10 +65,12 @@
 				</div>
 				<br><br>
 				<div class="media">
-				  <p class="ftxt">For any enquiries, reach us at aelection269@gmail.com</p>
+				  <p class="ftxt">For any enquiries, reach us at</p>
 				  <ul class="pages">
-					<li class="footerlink"><a href="frontend/help">Frequently Asked Questions</a></li>
-					<li class="footerlink"><a href="admin/login"> Admin Login </a></li>
+					<li class="media"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+					<li class="media"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+					<li class="media"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+					<li class="media"><a href="#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
 				  </ul>
 				</div>
 			</div>

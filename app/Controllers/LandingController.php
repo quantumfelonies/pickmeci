@@ -9,3 +9,4 @@ class LandingController extends BaseController
          return view('frontend/landing');
     }
 }
+?>

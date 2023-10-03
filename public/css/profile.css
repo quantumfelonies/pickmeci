@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body{
+    margin-top:20px;
+    background-color:lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+  }
+  .col-md-8 mt-1{
+    justify-content: center;
+    align-items: center;
+  }
+ .main{
+    padding:15px;
+   font-family:Arial, Helvetica, sans-serif;
+  }
+  .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Arial", sans-serif;
+    color: #333;
+  }
+  .card h5 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .content{
+    background-color: whitesmoke;
+  }
+  /*navigation*/
+  nav{
+    background: white;
+    position:absolute;
+    top:0;
+    bottom:0;
+    height:100%;
+    left:0;
+    background:#fff;
+    width:90px;
+    overflow:hidden;
+    transition:width 0.2s linear;
+    box-shadow:0 20px 35px rgba(0,0,0,0.1)
+    
+  }
+  
+  /*-----------------------------------Sidebar---------------------------------------------*/
+  .nav{
+      position:absolute;
+      top:0;
+      bottom:0;
+      height:100%;
+      left:0;
+      background:#fff;
+      width:90px;
+      overflow:hidden;
+      transition:width 0.2s linear;
+      box-shadow:0 20px 35px rgba(0,0,0,0.1)
+  }
+  a{
+      position:relative;
+      color:rgb(85,83,83);
+      font-size:14px;
+      display:table;
+      width:300px;
+      padding:10px;
+  }
+  .fas{
+      position:relative;
+      width:70px;
+      height:40px;
+      top:14px;
+      font-size:20px;
+      text-align:center;
+  }
+  .nav-item{
+      position:relative;
+      top:12px;
+      margin-left:10px;
+  }
+  a:hover{
+      background:#eee;
+  }
+  nav:hover{
+      width:280px;
+      transition: all 0.5s ease;
+  }
+  .logout{
+     position:absolute;
+     bottom:0 
+  }
+
